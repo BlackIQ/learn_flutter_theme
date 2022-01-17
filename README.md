@@ -2,15 +2,16 @@
 
 # learn_flutter_theme
 
-Learn flutter theme in this project. This project has a web app:
-https://app.yazdi.dev/learn_flutter_theme/
+Learn flutter theme in this project. This project has a [web app](https://app.yazdi.dev/learn_flutter_theme).
 
 ### What is this project
 
 This project contains dark and light themes, plus English and Persian localizations.
 
 ### How we can change the app based on the selected theme?
+
 You can change the current state of localization or theme by wrapping `MaterialApp` with `InheritedWidget` or anything else like `provider` or even `setState` the `MaterialApp` widget. Here we used an inherited widget:
+
 ```dart
 class _ModelBindingScope extends InheritedWidget {
   const _ModelBindingScope({
@@ -26,7 +27,8 @@ class _ModelBindingScope extends InheritedWidget {
 }
 ```
 
-and made it as a MaterialApp parent
+and made it as a MaterialApp parent:
+
 ```dart
 ModelBinding(
   initialModel: OurOptions(
@@ -45,11 +47,14 @@ ModelBinding(
 ```
 
 ### How to create the dark and light theme?
+
 It's so simple, just create a class and define your theme's properties based on your design for example like this in Figma:
+
 ![Figma](./figma.png)
 
 We have two options here:
 Create the whole `MaterialTheme` with all properties or just change what you need by `copyWith` the `MaterialTheme`, here we used the second option by overriding what we need:
+
 ```dart
 static const _lightFillColor = Colors.black;
 static const _darkFillColor = Colors.white;
@@ -76,10 +81,13 @@ static ThemeData themeData(ThemeData themeData, BuildContext context,
     );
 }
 ```
+
 As you can see we passed flutter`ThemeData.light()` and `ThemeData.dark()` with our `colorScheme` and `_faTextTheme` and `_textTheme` based on the localization, and finally used `themeData.copyWith` to change what we need. 
 
 We have two main properties that we have to customize, otherwise our theme is nothing but a MaterialTheme:
+
 - `ColorSchema` based on light and dark theme:
+
 ```dart
 static ColorScheme lightColorScheme = const ColorScheme.dark().copyWith(
     primary: const Color(0xFFB93C5D),
@@ -103,9 +111,11 @@ static ColorScheme darkColorScheme = const ColorScheme.light().copyWith(
     brightness: Brightness.dark,
 );
 ```
+
 As you can see there are multiple colors that each one of them used for multiple purposes for flutter widgets and again we override what we need to change of flutter's light and dark `colorScheme`.
 
 - `TextTheme` that we separated based on localization since we wanted to use a Persian font:
+
 ```dart
 static const _regular = FontWeight.w400;
 static const _medium = FontWeight.w500;
@@ -175,7 +185,9 @@ static TextTheme _faTextTheme(TextTheme textTheme, Color color) {
       .apply(bodyColor: color);
 }
 ```
+
 This is the place where we need to import our custom fonts. We used a `GoogleFont` package for our English text and a Persian font for our Persian text. Just don't forget to put your font in the `pubspec.yaml`:
+
 ```yaml
 assets:
   - fonts/google_fonts/
@@ -193,9 +205,11 @@ fonts:
     fonts:
       - asset: fonts/IRANSans-Bold.ttf
 ```
+
 and don't forget if you have multiple `FontWeight`, you should also add the other big fonts like `IRANSans-SemiBold` and `IRANSans-Bold`
 
 Everything else should be defined by your requirements in Figma like
+
 ```dart
 themeData.copyWith(
   appBarTheme: AppBarTheme(
@@ -241,7 +255,9 @@ themeData.copyWith(
 ```
 
 ### How we can know about localization in our theme?
+
 Here we have a helper method:
+
 ```dart
 bool isFarsiLocale(BuildContext context) {
   return (OurOptions.of(context)!.locale?.languageCode ?? false) == 'fa';
@@ -251,6 +267,7 @@ bool isFarsiLocale(BuildContext context) {
 If you pass a `context` to the theme, you can check localization based on an inherited widget that we created at the first step  It could be a `provider` or a `bloc` but you definitely need a `context` to access your selected localization (Or maybe you're using `getX` which I haven't tried :D).
 
 Then all you have to do is a simple if else:
+
 ```dart
 themeData.copyWith(
   colorScheme: colorScheme,
@@ -263,15 +280,18 @@ themeData.copyWith(
 ### Is there any way to change the theme for a specific widget and its children
 
 Yes, just wrap your widget by a `Theme` widget and you can define everything again:
+
 ```dart
 Theme(
     data: ThemeData(backgroundColor: Colors.red),
     child: OurChild(),
 ),
 ```
+
 You could also again use your previous `ThemeData` by using `Theme.of(context)` and change it what you need by using `Theme.of(context).copyWith()`. Flutter always looks for your closet `ThemeData` that's why it returned the one you define in you `MaterialApp` not the flutter's `ThemeData`.
 
 You can always use style or theme properties like `ButtonTheme` widget and flutter apply them first, for example if we want to change one text's style:
+
 ```dart
 Text(
   OurLocalizations.of(context)!.ourText,
