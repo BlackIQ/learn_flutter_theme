@@ -131,9 +131,9 @@ static ColorScheme darkColorScheme = const ColorScheme.light().copyWith(
 
 </div>
 
-As you can see there are multiple colors that each one of them used for multiple purposes for flutter widgets and again we override what we need to change of flutter's light and dark `colorScheme`.
+همانطور که می بینید چندین رنگ وجود دارد که هر یک از آنها برای اهداف مختلف برای ویجت های فلاتر استفاده می کنند و دوباره آنچه را که برای تغییر `colorScheme` روشن و تیره فلاتر نیاز داریم را نادیده می گیریم.
 
-- `TextTheme` that we separated based on localization since we wanted to use a Persian font:
+- `TextTheme` که ما جدا کردیم به دلیل اینکه میخواهیم از فونت فارسی استفاده کنیم.
 
 <div dir="ltr">
 
@@ -209,7 +209,7 @@ static TextTheme _faTextTheme(TextTheme textTheme, Color color) {
 
 </div>
 
-This is the place where we need to import our custom fonts. We used a `GoogleFont` package for our English text and a Persian font for our Persian text. Just don't forget to put your font in the `pubspec.yaml`:
+اینجا محلی هست که فونت ها رو ایمپورت میکنیم. با استفاده از `GoogleFont` فونت انگلیسی را فراخوانی میکنیم و فونت فارسی را متن های فارسی. یادتون نره فونت فارسی رو در `pubspec.yaml` قرار دهید.
 
 <div dir="ltr">
 
@@ -235,7 +235,7 @@ fonts:
 
 and don't forget if you have multiple `FontWeight`, you should also add the other big fonts like `IRANSans-SemiBold` and `IRANSans-Bold`
 
-Everything else should be defined by your requirements in Figma like
+هر چیز دیگری باید بر اساس نیازهای شما در فیگما تعریف شود.
 
 <div dir="ltr">
 
@@ -287,7 +287,7 @@ themeData.copyWith(
 
 ### چگونه میتوانیم درباره محلی سازی تم بدانیم؟
 
-Here we have a helper method:
+در اینجا یک متد کمکی داریم.
 
 <div dir="ltr">
 
@@ -301,7 +301,7 @@ bool isFarsiLocale(BuildContext context) {
 
 If you pass a `context` to the theme, you can check localization based on an inherited widget that we created at the first step  It could be a `provider` or a `bloc` but you definitely need a `context` to access your selected localization (Or maybe you're using `getX` which I haven't tried :D).
 
-Then all you have to do is a simple if else:
+سپس تمام کاری که باید انجام دهید این است که اگر غیر از آن باشد، ساده است.
 
 <div dir="ltr">
 
@@ -348,8 +348,13 @@ Text(
 
 ### سخن آخر
 
-In this project, I tried to explain theming as simply as I could. The flutter theme is simple as well as powerful. So clone this project and try to customize it with new ideas and don't forget the PRs are most welcomed.
-By the way, it is so much better to read flutter documentation: [Use themes to share colors and font styles](https://docs.flutter.dev/cookbook/design/themes), [Theme class API](https://api.flutter.dev/flutter/material/Theme-class.html) and [ThemeData class API](https://api.flutter.dev/flutter/material/ThemeData-class.html)
+در این پروژه سعی کردم تا جایی که می‌توانم موضوع را توضیح دهم. تم فلاتر ساده و همچنین قدرتمند است. پس این پروژه را شبیه سازی کنید و سعی کنید آن را با ایده های جدید شخصی سازی کنید و فراموش نکنید که روابط عمومی ها بیشتر مورد استقبال قرار می گیرند.
+خوبه که داکیومنت خود فلاتر هم بخونید:
+
+- [Use themes to share colors and font styles](https://docs.flutter.dev/cookbook/design/themes)
+- [Theme class API](https://api.flutter.dev/flutter/material/Theme-class.html)
+and
+- [ThemeData class API](https://api.flutter.dev/flutter/material/ThemeData-class.html)
 
 <!-- Thanks for your support by starring this repository, sorry I made this explanation in English, believe me, I tried but it's way hard to say all this stuff in Persian, but who knows maybe a nice guy will make a PR containing a `README-fa.md`. -->
 
