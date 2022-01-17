@@ -2,15 +2,15 @@
 
 ![Preview](./preview.gif)
 
-# learn_flutter_theme
+# آموزش تم ها در فلاتر
 
 Learn flutter theme in this project. This project has a [web app](https://app.yazdi.dev/learn_flutter_theme).
 
-### What is this project
+### درباره این پروژه
 
 This project contains dark and light themes, plus English and Persian localizations.
 
-### How we can change the app based on the selected theme?
+### چگونه میتوانیم تم برنامه را بر اساس مورد انتخاب شده انتخاب کنیم؟
 
 > Persian documentation is available in [README-FA.md](/README-FA.md).
 
@@ -58,7 +58,7 @@ ModelBinding(
 
 </div>
 
-### How to create the dark and light theme?
+### چگونه تم لایت و دارت را بسازیم؟
 
 It's so simple, just create a class and define your theme's properties based on your design for example like this in Figma:
 
@@ -286,7 +286,7 @@ themeData.copyWith(
 
 </div>
 
-### How we can know about localization in our theme?
+### چگونه میتوانیم درباره محلی سازی تم بدانیم؟
 
 Here we have a helper method:
 
@@ -317,7 +317,7 @@ themeData.copyWith(
 
 </div>
 
-### Is there any way to change the theme for a specific widget and its children
+### آیا راهی برای تغییر تم در ویجت و چاید ها وجود دارد؟
 
 Yes, just wrap your widget by a `Theme` widget and you can define everything again:
 
@@ -347,7 +347,7 @@ Text(
 
 </div>
 
-### Final Speech
+### سخن آخر
 
 In this project, I tried to explain theming as simply as I could. The flutter theme is simple as well as powerful. So clone this project and try to customize it with new ideas and don't forget the PRs are most welcomed.
 By the way, it is so much better to read flutter documentation: [Use themes to share colors and font styles](https://docs.flutter.dev/cookbook/design/themes), [Theme class API](https://api.flutter.dev/flutter/material/Theme-class.html) and [ThemeData class API](https://api.flutter.dev/flutter/material/ThemeData-class.html)
