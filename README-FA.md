@@ -4,17 +4,16 @@
 
 # آموزش تم ها در فلاتر
 
-Learn flutter theme in this project. This project has a [web app](https://app.yazdi.dev/learn_flutter_theme).
+تم ها در فلاتر را با این پروژه یاد بگیرید. این پروژه یک [برنامه تحت وب](https://app.yazdi.dev/learn_flutter_theme) نیز دارد.
+
 
 ### درباره این پروژه
 
-This project contains dark and light themes, plus English and Persian localizations.
+این پروژه دارای تم دارک و لایت و همچنین زبان فارسی و انگلیسی میباشد.
 
 ### چگونه میتوانیم تم برنامه را بر اساس مورد انتخاب شده انتخاب کنیم؟
 
-> Persian documentation is available in [README-FA.md](/README-FA.md).
-
-You can change the current state of localization or theme by wrapping `MaterialApp` with `InheritedWidget` or anything else like `provider` or even `setState` the `MaterialApp` widget. Here we used an inherited widget:
+شما میتوانید وضعیت محلی تم را با قرار دادن یک `MaterialApp` همراه با `InheritedWidget` یا هر چیز دیگر مثل `Provider` یا حتی `setState` انجام دهید. ما اینجا از روش ارث بری پیش رفتیم.
 
 <div dir="ltr">
 
@@ -35,7 +34,7 @@ class _ModelBindingScope extends InheritedWidget {
 
 </div>
 
-and made it as a MaterialApp parent:
+و آن را به یک MaterialApp پرنت تبدیل کردیم.
 
 <div dir="ltr">
 
@@ -60,12 +59,12 @@ ModelBinding(
 
 ### چگونه تم لایت و دارت را بسازیم؟
 
-It's so simple, just create a class and define your theme's properties based on your design for example like this in Figma:
+این کار خیلی ساده هست فقط نیاز هست یک کلاس و همراه با ویزگی هایش تعریف کنید. مثل این کار در Figma.
 
 ![Figma](./figma.png)
 
-We have two options here:
-Create the whole `MaterialTheme` with all properties or just change what you need by `copyWith` the `MaterialTheme`, here we used the second option by overriding what we need:
+در اینجا دو راه وجود دارد.
+کل `MaterialTheme` را بسازیم یا اینکه هر آنچه نیاز هست را با `copyWith` در `MaterialTheme` قرار دهیم. از روش دوم پیش میرویم تا هر آنچه نیاز داریم را `override` کنیم.
 
 <div dir="ltr">
 
