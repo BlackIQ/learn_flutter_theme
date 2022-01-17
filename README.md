@@ -10,6 +10,8 @@ This project contains dark and light themes, plus English and Persian localizati
 
 ### How we can change the app based on the selected theme?
 
+> Persian documentation is available in [README-FA.md](/README-FA.md).
+
 You can change the current state of localization or theme by wrapping `MaterialApp` with `InheritedWidget` or anything else like `provider` or even `setState` the `MaterialApp` widget. Here we used an inherited widget:
 
 ```dart
@@ -304,4 +306,4 @@ Text(
 In this project, I tried to explain theming as simply as I could. The flutter theme is simple as well as powerful. So clone this project and try to customize it with new ideas and don't forget the PRs are most welcomed.
 By the way, it is so much better to read flutter documentation: [Use themes to share colors and font styles](https://docs.flutter.dev/cookbook/design/themes), [Theme class API](https://api.flutter.dev/flutter/material/Theme-class.html) and [ThemeData class API](https://api.flutter.dev/flutter/material/ThemeData-class.html)
 
-Thanks for your support by starring this repository, sorry I made this explanation in English, believe me, I tried but it's way hard to say all this stuff in Persian, but who knows maybe a nice guy will make a PR containing a `README-fa.md`.
+<!-- Thanks for your support by starring this repository, sorry I made this explanation in English, believe me, I tried but it's way hard to say all this stuff in Persian, but who knows maybe a nice guy will make a PR containing a `README-fa.md`. -->
